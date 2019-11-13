@@ -305,24 +305,38 @@ ipcMain.on('version-info-requested', () => {
 });
 
 ipcMain.on('get-auth-token', event => {
-  keytar.getPassword('LBRY', 'auth_token').then(token => {
-    event.sender.send('auth-token-response', token ? token.toString().trim() : null);
+  keytar.getPassword('LBRY', 'auth_token')
+    .then(token => {
+      event.sender.send('auth-token-response', token ? token.toString().trim() : null);
+    }).catch(() => {
+      console.log('Failed to use keychain')
+      event.sender.send('auth-token-response', null);
   });
 });
 
 ipcMain.on('set-auth-token', (event, token) => {
-  keytar.setPassword('LBRY', 'auth_token', token ? token.toString().trim() : null);
+  keytar.setPassword('LBRY', 'auth_token', token ? token.toString().trim() : null)
+    .catch(() => console.log('could not set password'));
 });
 
 ipcMain.on('delete-auth-token', (event, password) => {
-  keytar.deletePassword('LBRY', 'auth_token', password).then(res => {
-    event.sender.send('delete-auth-token-response', res);
+  keytar.deletePassword('LBRY', 'auth_token', password)
+    .then(res => {
+      event.sender.send('delete-auth-token-response', res);
+    }).catch(() => {
+      console.log('Failed to access keychain');
+      event.sender.send('delete-auth-token-response', res);
+
   });
 });
 
 ipcMain.on('get-password', event => {
-  keytar.getPassword('LBRY', 'wallet_password').then(password => {
-    event.sender.send('get-password-response', password ? password.toString() : null);
+  keytar.getPassword('LBRY', 'wallet_password')
+    .then(password => {
+      event.sender.send('get-password-response', password ? password.toString() : null);
+  }).catch(() => {
+    console.log('Failed to access keychain')
+    event.sender.send('get-password-response', '');
   });
 });
 
@@ -330,12 +344,17 @@ ipcMain.on('set-password', (event, password) => {
   if (password || password === '') {
     keytar.setPassword('LBRY', 'wallet_password', password).then(res => {
       event.sender.send('set-password-response', res);
-    });
+    }).catch(() => console.log('Failed to access keychain')
+    );
   }
 });
 
 ipcMain.on('delete-password', event => {
-  keytar.deletePassword('LBRY', 'wallet_password').then(res => {
+  keytar.deletePassword('LBRY', 'wallet_password')
+    .then(res => {
+      event.sender.send('delete-password-response', res);
+  }).catch(() => {
+    console.log('Failed to access keychain');
     event.sender.send('delete-password-response', res);
   });
 });

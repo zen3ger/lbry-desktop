@@ -45,7 +45,7 @@ const PROXY_PATH = 'api/v1/proxy';
 export const SDK_API_URL = `${process.env.SDK_API_URL}/${PROXY_PATH}` || `https://api.lbry.tv/${PROXY_PATH}`;
 
 Lbry.setDaemonConnectionString(SDK_API_URL);
-
+debugger; console.log('A')
 Lbry.setOverride(
   'publish',
   params =>
@@ -64,6 +64,7 @@ Lbry.setOverride(
 );
 // @endif
 
+debugger; console.log('A')
 const startTime = Date.now();
 analytics.startupEvent();
 
@@ -72,7 +73,7 @@ const APPPAGEURL = 'lbry://?';
 const { autoUpdater } = remote.require('electron-updater');
 autoUpdater.logger = remote.require('electron-log');
 // @endif
-
+debugger; console.log('A')
 if (process.env.LBRY_API_URL) {
   Lbryio.setLocalApi(process.env.LBRY_API_URL);
 }
@@ -115,7 +116,7 @@ Lbryio.setOverride(
       });
     })
 );
-
+debugger; console.log('A')
 Lbryio.setOverride(
   'getAuthToken',
   () =>
@@ -152,7 +153,7 @@ rewards.setCallback('claimFirstRewardSuccess', () => {
 rewards.setCallback('claimRewardSuccess', () => {
   app.store.dispatch(doHideModal());
 });
-
+debugger; console.log('A')
 // @if TARGET='app'
 ipcRenderer.on('open-uri-requested', (event, uri, newSession) => {
   if (uri && uri.startsWith('lbry://')) {
@@ -188,7 +189,7 @@ ipcRenderer.on('window-is-focused', () => {
   app.store.dispatch({ type: ACTIONS.WINDOW_FOCUSED });
   dock.setBadge('');
 });
-
+debugger; console.log('A')
 ipcRenderer.on('devtools-is-opened', () => {
   doLogWarningConsoleMessage();
 });
@@ -200,7 +201,7 @@ remote.getCurrentWindow().on('leave-full-screen', event => {
 });
 
 // @endif
-
+debugger;
 document.addEventListener('dragover', event => {
   event.preventDefault();
 });
@@ -221,7 +222,7 @@ document.addEventListener('click', event => {
     target = target.parentNode;
   }
 });
-
+debugger;
 function AppWrapper() {
   // Splash screen and sdk setup not needed on web
   const [readyToLaunch, setReadyToLaunch] = useState(IS_WEB);
