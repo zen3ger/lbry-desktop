@@ -16,6 +16,9 @@ export default appState => {
     defaultHeight: height,
   });
 
+  console.log('ARGV', process.argv)
+  const startMinimized =   (process.argv || []).includes('--hidden');
+
   const windowConfiguration = {
     backgroundColor: '#270f34', // Located in src/scss/init/_vars.scss `--color-background--splash`
     minWidth: 950,
@@ -123,7 +126,7 @@ export default appState => {
     );
   });
   window.once('ready-to-show', () => {
-    window.show();
+    startMinimized ? window.hide() : window.show();
   });
 
   window.webContents.on('did-finish-load', () => {
