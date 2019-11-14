@@ -136,6 +136,7 @@ export function doSetAutoLaunch(value) {
 
     if (value === undefined) {
       launcher.isEnabled().then(isEnabled => {
+        console.log('STARTUP LAUNCH enabled:', isEnabled, 'autolaunch: ', autoLaunch);
         if (isEnabled) {
           if (!autoLaunch) {
             launcher.disable().then(() => {
@@ -144,6 +145,7 @@ export function doSetAutoLaunch(value) {
           }
         } else {
           if (autoLaunch) {
+            console.log('STARTUP, NOT ENABLED, autolaunch');
             launcher.enable().then(() => {
               dispatch(doSetClientSetting(SETTINGS.AUTO_LAUNCH, true));
             });

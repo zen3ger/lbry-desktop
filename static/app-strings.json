@@ -869,5 +869,8 @@
   "contact support": "contact support",
   "Look what's %trending% or %discover%": "Look what's %trending% or %discover%",
   "Sorry, your request timed out. %again%": "Sorry, your request timed out. %again%",
-  "If you continue to have issues, please %support%.": "If you continue to have issues, please %support%."
+  "If you continue to have issues, please %support%.": "If you continue to have issues, please %support%.",
+  "Startup Preferences": "Startup Preferences",
+  "Start minimized": "Start minimized",
+  "Improve view speed and help the LBRY network by allowing the app to cuddle up in your system tray.": "Improve view speed and help the LBRY network by allowing the app to cuddle up in your system tray."
 }

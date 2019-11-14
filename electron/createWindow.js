@@ -19,6 +19,7 @@ export default appState => {
 
   const startMinimized = (process.argv || []).includes('--hidden');
 
+
   const windowConfiguration = {
     backgroundColor: '#270f34', // Located in src/scss/init/_vars.scss `--color-background--splash`
     minWidth: 950,
@@ -127,9 +128,14 @@ export default appState => {
     );
   });
 
-  window.once('ready-to-show', () => {
+  // window.once('ready-to-show', () => {
+  //   startMinimized ? window.hide() : window.show();
+  // });
+
+  window.once('dom-ready', () => {
     startMinimized ? window.hide() : window.show();
   });
+
 
   window.webContents.on('did-finish-load', () => {
     window.webContents.session.setUserAgent(`LBRY/${app.getVersion()}`);
