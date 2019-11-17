@@ -45,9 +45,15 @@ export default appState => {
 
   let window = new BrowserWindow(windowConfiguration);
 
+  // if ( startMinimized ) {
+  //   console.log('START MINIMIZED')
+  //   window.minimize();
+  //   window.hide();
+  // }
   // Let us register listeners on the window, so we can update the state
   // automatically (the listeners will be removed when the window is closed)
   // and restore the maximized or full screen state.
+
   windowState.manage(window);
 
   let deepLinkingURI;
@@ -128,8 +134,14 @@ export default appState => {
   });
 
   window.once('ready-to-show', () => {
+    console.log('ready-to-show')
     startMinimized ? window.hide() : window.show();
   });
+
+  window.webContents.once('dom-ready', () => {
+    console.log('dom-ready')
+    startMinimized && window.hide()
+  })
 
   window.webContents.on('did-finish-load', () => {
     window.webContents.session.setUserAgent(`LBRY/${app.getVersion()}`);
