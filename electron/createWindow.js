@@ -128,12 +128,10 @@ export default appState => {
   });
 
   window.once('ready-to-show', () => {
-    console.log('ready-to-show')
     startMinimized ? window.hide() : window.show();
   });
 
   window.webContents.once('dom-ready', () => {
-    console.log('dom-ready')
     startMinimized && window.hide()
   })
 
