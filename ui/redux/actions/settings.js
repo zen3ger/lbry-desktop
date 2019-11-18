@@ -137,17 +137,13 @@ export function doSetAutoLaunch(value) {
     if (value === undefined) {
       launcher.isEnabled().then(isEnabled => {
         if (isEnabled) {
-          if (autoLaunch === null || autoLaunch === undefined) {
-            launcher.enable().then(() => {
-              dispatch(doSetClientSetting(SETTINGS.AUTO_LAUNCH, true));
-            });
-          } else if (!autoLaunch) {
+          if (!autoLaunch) {
             launcher.disable().then(() => {
               dispatch(doSetClientSetting(SETTINGS.AUTO_LAUNCH, false));
             });
           }
         } else {
-          if (autoLaunch) {
+          if (autoLaunch || autoLaunch === null || autoLaunch === undefined) {
             launcher.enable().then(() => {
               dispatch(doSetClientSetting(SETTINGS.AUTO_LAUNCH, true));
             });
