@@ -6,6 +6,8 @@ const SUPPORTED_LANGUAGES = {
   id: LANGUAGES.id[1],
   de: LANGUAGES.de[1],
   fr: LANGUAGES.fr[1],
+  hi: LANGUAGES.hi[1],
+  pt: LANGUAGES.pt[1],
   sk: LANGUAGES.sk[1],
   tr: LANGUAGES.tr[1],
   zh: LANGUAGES.zh[1],
