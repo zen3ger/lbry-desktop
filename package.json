@@ -206,7 +206,7 @@
   },
   "lbrySettings": {
     "lbrynetDaemonVersion": "0.49.0",
-    "lbrynetDaemonUrlTemplate": "https://build.lbry.io/daemon/build-12994_commit-d2095d2_branch-secret_branch/lbrynet-OSNAME.zip",
+    "lbrynetDaemonUrlTemplate": "https://build.lbry.io/daemon/build-12998_commit-c1e2c41_branch-master/lbrynet-OSNAME.zip",
     "lbrynetDaemonDir": "static/daemon",
     "lbrynetDaemonFileName": "lbrynet"
   }
