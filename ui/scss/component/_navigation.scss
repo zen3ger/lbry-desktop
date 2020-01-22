@@ -15,12 +15,37 @@
 
 .navigation--placeholder {
   @extend .navigation;
-  padding: 2rem 1.5rem;
+  padding: 0.25rem 0rem;
   border-radius: var(--card-radius);
   font-weight: var(--font-weight-bold);
   color: #fff;
   position: relative;
-  background-color: black;
+  &:empty {
+    display: none;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+.navigation--placeholder-content {
+  @extend .navigation;
+  margin: auto;
+  margin-top: 0rem;
+  &:not(:last-of-type) {
+    margin-bottom: 0.25rem;
+  }
+  height: 300px;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   h2 {
     font-size: 2rem;
