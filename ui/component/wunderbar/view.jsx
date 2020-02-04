@@ -176,7 +176,7 @@ class WunderBar extends React.PureComponent<Props, State> {
           wrapperStyle={{ flex: 1, position: 'relative' }}
           value={searchQuery}
           items={suggestions}
-          getItemValue={item => item.value}
+          getItemValue={item => item.valuex}
           onChange={this.handleChange}
           onSelect={this.handleSubmit}
           inputProps={{
