@@ -923,5 +923,10 @@
   "refreshing the app": "refreshing the app",
   "Follower": "Follower",
   "%repost_channel_link% reposted": "%repost_channel_link% reposted",
-  "This channel may have been unpublished.": "This channel may have been unpublished."
+  "This channel may have been unpublished.": "This channel may have been unpublished.",
+  "Repost": "Repost",
+  "Advanced": "Advanced",
+  "Reposting": "Reposting",
+  "There was an error. Try %refreshing_the_app_link% to fix it. If that doesn't work, try pressing Ctrl+R/Cmd+R.": "There was an error. Try %refreshing_the_app_link% to fix it. If that doesn't work, try pressing Ctrl+R/Cmd+R.",
+  "Woohoo! Sucessfully reposted this claim.": "Woohoo! Sucessfully reposted this claim."
 }
