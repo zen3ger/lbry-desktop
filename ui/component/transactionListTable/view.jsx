@@ -15,7 +15,7 @@ type Props = {
 
 function TransactionListTable(props: Props) {
   const { emptyMessage, rewards, loading, transactionList } = props;
-
+  console.log('tx', transactionList);
   function isRevokeable(txid: string, nout: number) {
     const outpoint = `${txid}:${nout}`;
     const { mySupports, myClaims } = props;

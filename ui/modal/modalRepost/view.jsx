@@ -1,4 +1,5 @@
 // @flow
+import * as ICONS from 'constants/icons';
 import { CHANNEL_NEW, MINIMUM_PUBLISH_BID, INVALID_NAME_ERROR } from 'constants/claim';
 import React from 'react';
 import { Modal } from 'modal/modal';
@@ -171,6 +172,7 @@ function ModalRepost(props: Props) {
         actions={
           <React.Fragment>
             <Button
+              icon={ICONS.REPOST}
               disabled={reposting || repostBidError || repostNameError}
               button="primary"
               label={reposting ? __('Reposting') : __('Repost')}
